@@ -1,0 +1,3068 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "backend-vacaciones",
+    "version": "0.0.1",
+    "description": "backend-vacaciones",
+    "contact": {
+      "name": "wolf813",
+      "email": "danielemorales7@gmail.com"
+    }
+  },
+  "paths": {
+    "/cargos/count": {
+      "get": {
+        "x-controller-name": "CargoController",
+        "x-operation-name": "count",
+        "tags": [
+          "CargoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Cargo model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Cargo.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Cargo>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CargoController.count"
+      }
+    },
+    "/cargos/{id}/empleados": {
+      "post": {
+        "x-controller-name": "CargoEmpleadoController",
+        "x-operation-name": "create",
+        "tags": [
+          "CargoEmpleadoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Cargo model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Empleado"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewEmpleadoInCargo"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "CargoEmpleadoController.create"
+      },
+      "patch": {
+        "x-controller-name": "CargoEmpleadoController",
+        "x-operation-name": "patch",
+        "tags": [
+          "CargoEmpleadoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Cargo.Empleado PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Empleado.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Empleado>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmpleadoPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "CargoEmpleadoController.patch"
+      },
+      "get": {
+        "x-controller-name": "CargoEmpleadoController",
+        "x-operation-name": "find",
+        "tags": [
+          "CargoEmpleadoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Cargo has many Empleado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Empleado"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CargoEmpleadoController.find"
+      },
+      "delete": {
+        "x-controller-name": "CargoEmpleadoController",
+        "x-operation-name": "delete",
+        "tags": [
+          "CargoEmpleadoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Cargo.Empleado DELETE success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Empleado.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Empleado>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CargoEmpleadoController.delete"
+      }
+    },
+    "/cargos/{id}": {
+      "put": {
+        "x-controller-name": "CargoController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "CargoController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Cargo PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Cargo"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "CargoController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "CargoController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "CargoController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Cargo PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CargoPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "CargoController.updateById"
+      },
+      "get": {
+        "x-controller-name": "CargoController",
+        "x-operation-name": "findById",
+        "tags": [
+          "CargoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Cargo model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CargoWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cargo.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CargoController.findById"
+      },
+      "delete": {
+        "x-controller-name": "CargoController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "CargoController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Cargo DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "CargoController.deleteById"
+      }
+    },
+    "/cargos": {
+      "post": {
+        "x-controller-name": "CargoController",
+        "x-operation-name": "create",
+        "tags": [
+          "CargoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Cargo model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cargo"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewCargo"
+              }
+            }
+          }
+        },
+        "operationId": "CargoController.create"
+      },
+      "patch": {
+        "x-controller-name": "CargoController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "CargoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Cargo PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Cargo.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Cargo>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CargoPartial"
+              }
+            }
+          }
+        },
+        "operationId": "CargoController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "CargoController",
+        "x-operation-name": "find",
+        "tags": [
+          "CargoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Cargo model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CargoWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cargo.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CargoController.find"
+      }
+    },
+    "/codigo-trabajos/count": {
+      "get": {
+        "x-controller-name": "CodigotrabajoController",
+        "x-operation-name": "count",
+        "tags": [
+          "CodigotrabajoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "CodigoTrabajo model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "CodigoTrabajo.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<CodigoTrabajo>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CodigotrabajoController.count"
+      }
+    },
+    "/codigo-trabajos/{id}": {
+      "put": {
+        "x-controller-name": "CodigotrabajoController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "CodigotrabajoController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "CodigoTrabajo PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CodigoTrabajo"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "CodigotrabajoController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "CodigotrabajoController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "CodigotrabajoController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "CodigoTrabajo PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CodigoTrabajoPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "CodigotrabajoController.updateById"
+      },
+      "get": {
+        "x-controller-name": "CodigotrabajoController",
+        "x-operation-name": "findById",
+        "tags": [
+          "CodigotrabajoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "CodigoTrabajo model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodigoTrabajoWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodigoTrabajo.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CodigotrabajoController.findById"
+      },
+      "delete": {
+        "x-controller-name": "CodigotrabajoController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "CodigotrabajoController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "CodigoTrabajo DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "CodigotrabajoController.deleteById"
+      }
+    },
+    "/codigo-trabajos": {
+      "post": {
+        "x-controller-name": "CodigotrabajoController",
+        "x-operation-name": "create",
+        "tags": [
+          "CodigotrabajoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "CodigoTrabajo model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodigoTrabajo"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewCodigoTrabajo"
+              }
+            }
+          }
+        },
+        "operationId": "CodigotrabajoController.create"
+      },
+      "patch": {
+        "x-controller-name": "CodigotrabajoController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "CodigotrabajoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "CodigoTrabajo PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "CodigoTrabajo.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<CodigoTrabajo>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CodigoTrabajoPartial"
+              }
+            }
+          }
+        },
+        "operationId": "CodigotrabajoController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "CodigotrabajoController",
+        "x-operation-name": "find",
+        "tags": [
+          "CodigotrabajoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of CodigoTrabajo model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CodigoTrabajoWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodigoTrabajo.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CodigotrabajoController.find"
+      }
+    },
+    "/empleados/count": {
+      "get": {
+        "x-controller-name": "EmpleadoController",
+        "x-operation-name": "count",
+        "tags": [
+          "EmpleadoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Empleado model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Empleado.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Empleado>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "EmpleadoController.count"
+      }
+    },
+    "/empleados/{id}/cargo": {
+      "get": {
+        "x-controller-name": "EmpleadoCargoController",
+        "x-operation-name": "getCargo",
+        "tags": [
+          "EmpleadoCargoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Cargo belonging to Empleado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Cargo"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "EmpleadoCargoController.getCargo"
+      }
+    },
+    "/empleados/{id}/vacaciones": {
+      "post": {
+        "x-controller-name": "EmpleadoVacacionesController",
+        "x-operation-name": "create",
+        "tags": [
+          "EmpleadoVacacionesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Empleado model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vacaciones"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewVacacionesInEmpleado"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "EmpleadoVacacionesController.create"
+      },
+      "patch": {
+        "x-controller-name": "EmpleadoVacacionesController",
+        "x-operation-name": "patch",
+        "tags": [
+          "EmpleadoVacacionesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Empleado.Vacaciones PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Vacaciones.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Vacaciones>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VacacionesPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "EmpleadoVacacionesController.patch"
+      },
+      "get": {
+        "x-controller-name": "EmpleadoVacacionesController",
+        "x-operation-name": "find",
+        "tags": [
+          "EmpleadoVacacionesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Empleado has many Vacaciones",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Vacaciones"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "EmpleadoVacacionesController.find"
+      },
+      "delete": {
+        "x-controller-name": "EmpleadoVacacionesController",
+        "x-operation-name": "delete",
+        "tags": [
+          "EmpleadoVacacionesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Empleado.Vacaciones DELETE success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Vacaciones.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Vacaciones>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "EmpleadoVacacionesController.delete"
+      }
+    },
+    "/empleados/{id}": {
+      "put": {
+        "x-controller-name": "EmpleadoController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "EmpleadoController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Empleado PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Empleado"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "EmpleadoController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "EmpleadoController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "EmpleadoController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Empleado PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmpleadoPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "EmpleadoController.updateById"
+      },
+      "get": {
+        "x-controller-name": "EmpleadoController",
+        "x-operation-name": "findById",
+        "tags": [
+          "EmpleadoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Empleado model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpleadoWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Empleado.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "EmpleadoController.findById"
+      },
+      "delete": {
+        "x-controller-name": "EmpleadoController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "EmpleadoController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Empleado DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "EmpleadoController.deleteById"
+      }
+    },
+    "/empleados": {
+      "post": {
+        "x-controller-name": "EmpleadoController",
+        "x-operation-name": "create",
+        "tags": [
+          "EmpleadoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Empleado model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Empleado"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewEmpleado"
+              }
+            }
+          }
+        },
+        "operationId": "EmpleadoController.create"
+      },
+      "patch": {
+        "x-controller-name": "EmpleadoController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "EmpleadoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Empleado PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Empleado.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Empleado>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmpleadoPartial"
+              }
+            }
+          }
+        },
+        "operationId": "EmpleadoController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "EmpleadoController",
+        "x-operation-name": "find",
+        "tags": [
+          "EmpleadoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Empleado model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmpleadoWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Empleado.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "EmpleadoController.find"
+      }
+    },
+    "/ping": {
+      "get": {
+        "x-controller-name": "PingController",
+        "x-operation-name": "ping",
+        "tags": [
+          "PingController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ping Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PingResponse"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "PingController.ping"
+      }
+    },
+    "/vacaciones/count": {
+      "get": {
+        "x-controller-name": "VacacionesController",
+        "x-operation-name": "count",
+        "tags": [
+          "VacacionesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Vacaciones model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Vacaciones.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Vacaciones>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "VacacionesController.count"
+      }
+    },
+    "/vacaciones/{id}/empleado": {
+      "get": {
+        "x-controller-name": "VacacionesEmpleadoController",
+        "x-operation-name": "getEmpleado",
+        "tags": [
+          "VacacionesEmpleadoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Empleado belonging to Vacaciones",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Empleado"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "VacacionesEmpleadoController.getEmpleado"
+      }
+    },
+    "/vacaciones/{id}": {
+      "put": {
+        "x-controller-name": "VacacionesController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "VacacionesController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Vacaciones PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Vacaciones"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "VacacionesController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "VacacionesController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "VacacionesController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Vacaciones PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VacacionesPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "VacacionesController.updateById"
+      },
+      "get": {
+        "x-controller-name": "VacacionesController",
+        "x-operation-name": "findById",
+        "tags": [
+          "VacacionesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Vacaciones model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VacacionesWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vacaciones.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "VacacionesController.findById"
+      },
+      "delete": {
+        "x-controller-name": "VacacionesController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "VacacionesController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Vacaciones DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "VacacionesController.deleteById"
+      }
+    },
+    "/vacaciones": {
+      "post": {
+        "x-controller-name": "VacacionesController",
+        "x-operation-name": "create",
+        "tags": [
+          "VacacionesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Vacaciones model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vacaciones"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewVacaciones"
+              }
+            }
+          }
+        },
+        "operationId": "VacacionesController.create"
+      },
+      "patch": {
+        "x-controller-name": "VacacionesController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "VacacionesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Vacaciones PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Vacaciones.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Vacaciones>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VacacionesPartial"
+              }
+            }
+          }
+        },
+        "operationId": "VacacionesController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "VacacionesController",
+        "x-operation-name": "find",
+        "tags": [
+          "VacacionesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Vacaciones model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/VacacionesWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vacaciones.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "VacacionesController.find"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Empleado": {
+        "title": "Empleado",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "fechaingreso": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "cargoid": {
+            "type": "string"
+          },
+          "disponible": {
+            "type": "boolean"
+          },
+          "cargoId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre",
+          "fechaingreso",
+          "cargoid"
+        ],
+        "additionalProperties": false
+      },
+      "NewEmpleadoInCargo": {
+        "title": "NewEmpleadoInCargo",
+        "type": "object",
+        "description": "(tsType: @loopback/repository-json-schema#Optional<Omit<Empleado, 'id'>, 'cargoId'>, schemaOptions: { title: 'NewEmpleadoInCargo', exclude: [ 'id' ], optional: [ 'cargoId' ] })",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "fechaingreso": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "cargoid": {
+            "type": "string"
+          },
+          "disponible": {
+            "type": "boolean"
+          },
+          "cargoId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre",
+          "fechaingreso",
+          "cargoid"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository-json-schema#Optional<Omit<Empleado, 'id'>, 'cargoId'>"
+      },
+      "EmpleadoPartial": {
+        "title": "EmpleadoPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Empleado>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "fechaingreso": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "cargoid": {
+            "type": "string"
+          },
+          "disponible": {
+            "type": "boolean"
+          },
+          "cargoId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Empleado>"
+      },
+      "Cargo": {
+        "title": "Cargo",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre"
+        ],
+        "additionalProperties": false
+      },
+      "NewCargo": {
+        "title": "NewCargo",
+        "type": "object",
+        "description": "(tsType: Omit<Cargo, 'id'>, schemaOptions: { title: 'NewCargo', exclude: [ 'id' ] })",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Cargo, 'id'>"
+      },
+      "VacacionesWithRelations": {
+        "title": "VacacionesWithRelations",
+        "type": "object",
+        "description": "(tsType: VacacionesWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "empleadoif": {
+            "type": "string"
+          },
+          "empleadoId": {
+            "type": "string"
+          },
+          "empleado": {
+            "$ref": "#/components/schemas/EmpleadoWithRelations"
+          }
+        },
+        "required": [
+          "fecha",
+          "empleadoif"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "VacacionesWithRelations"
+      },
+      "EmpleadoWithRelations": {
+        "title": "EmpleadoWithRelations",
+        "type": "object",
+        "description": "(tsType: EmpleadoWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "fechaingreso": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "cargoid": {
+            "type": "string"
+          },
+          "disponible": {
+            "type": "boolean"
+          },
+          "cargoId": {
+            "type": "string"
+          },
+          "cargo": {
+            "$ref": "#/components/schemas/CargoWithRelations"
+          },
+          "vacaciones": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VacacionesWithRelations"
+            }
+          }
+        },
+        "required": [
+          "nombre",
+          "fechaingreso",
+          "cargoid"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "EmpleadoWithRelations"
+      },
+      "CargoWithRelations": {
+        "title": "CargoWithRelations",
+        "type": "object",
+        "description": "(tsType: CargoWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "empleados": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EmpleadoWithRelations"
+            }
+          }
+        },
+        "required": [
+          "nombre"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "CargoWithRelations"
+      },
+      "CargoPartial": {
+        "title": "CargoPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Cargo>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Cargo>"
+      },
+      "CodigoTrabajo": {
+        "title": "CodigoTrabajo",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "antiguedad": {
+            "type": "number"
+          },
+          "diasOtorgados": {
+            "type": "number"
+          },
+          "vigente": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "antiguedad",
+          "diasOtorgados",
+          "vigente"
+        ],
+        "additionalProperties": false
+      },
+      "NewCodigoTrabajo": {
+        "title": "NewCodigoTrabajo",
+        "type": "object",
+        "description": "(tsType: Omit<CodigoTrabajo, 'id'>, schemaOptions: { title: 'NewCodigoTrabajo', exclude: [ 'id' ] })",
+        "properties": {
+          "antiguedad": {
+            "type": "number"
+          },
+          "diasOtorgados": {
+            "type": "number"
+          },
+          "vigente": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "antiguedad",
+          "diasOtorgados",
+          "vigente"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<CodigoTrabajo, 'id'>"
+      },
+      "CodigoTrabajoWithRelations": {
+        "title": "CodigoTrabajoWithRelations",
+        "type": "object",
+        "description": "(tsType: CodigoTrabajoWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "antiguedad": {
+            "type": "number"
+          },
+          "diasOtorgados": {
+            "type": "number"
+          },
+          "vigente": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "antiguedad",
+          "diasOtorgados",
+          "vigente"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "CodigoTrabajoWithRelations"
+      },
+      "CodigoTrabajoPartial": {
+        "title": "CodigoTrabajoPartial",
+        "type": "object",
+        "description": "(tsType: Partial<CodigoTrabajo>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "antiguedad": {
+            "type": "number"
+          },
+          "diasOtorgados": {
+            "type": "number"
+          },
+          "vigente": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<CodigoTrabajo>"
+      },
+      "Vacaciones": {
+        "title": "Vacaciones",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "empleadoif": {
+            "type": "string"
+          },
+          "empleadoId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "fecha",
+          "empleadoif"
+        ],
+        "additionalProperties": false
+      },
+      "NewVacacionesInEmpleado": {
+        "title": "NewVacacionesInEmpleado",
+        "type": "object",
+        "description": "(tsType: @loopback/repository-json-schema#Optional<Omit<Vacaciones, 'id'>, 'empleadoId'>, schemaOptions: { title: 'NewVacacionesInEmpleado', exclude: [ 'id' ], optional: [ 'empleadoId' ] })",
+        "properties": {
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "empleadoif": {
+            "type": "string"
+          },
+          "empleadoId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "fecha",
+          "empleadoif"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository-json-schema#Optional<Omit<Vacaciones, 'id'>, 'empleadoId'>"
+      },
+      "VacacionesPartial": {
+        "title": "VacacionesPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Vacaciones>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "empleadoif": {
+            "type": "string"
+          },
+          "empleadoId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Vacaciones>"
+      },
+      "NewEmpleado": {
+        "title": "NewEmpleado",
+        "type": "object",
+        "description": "(tsType: Omit<Empleado, 'id'>, schemaOptions: { title: 'NewEmpleado', exclude: [ 'id' ] })",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "fechaingreso": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "cargoid": {
+            "type": "string"
+          },
+          "disponible": {
+            "type": "boolean"
+          },
+          "cargoId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre",
+          "fechaingreso",
+          "cargoid"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Empleado, 'id'>"
+      },
+      "NewVacaciones": {
+        "title": "NewVacaciones",
+        "type": "object",
+        "description": "(tsType: Omit<Vacaciones, 'id'>, schemaOptions: { title: 'NewVacaciones', exclude: [ 'id' ] })",
+        "properties": {
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "empleadoif": {
+            "type": "string"
+          },
+          "empleadoId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "fecha",
+          "empleadoif"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Vacaciones, 'id'>"
+      },
+      "loopback.Count": {
+        "type": "object",
+        "title": "loopback.Count",
+        "x-typescript-type": "@loopback/repository#Count",
+        "properties": {
+          "count": {
+            "type": "number"
+          }
+        }
+      },
+      "Cargo.ScopeFilter": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "Cargo.ScopeFilter"
+      },
+      "Cargo.IncludeFilter.Items": {
+        "title": "Cargo.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Cargo.ScopeFilter"
+          }
+        }
+      },
+      "Cargo.Filter": {
+        "type": "object",
+        "title": "Cargo.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "nombre"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Cargo.Fields"
+          },
+          "include": {
+            "title": "Cargo.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Cargo.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Cargo>"
+      },
+      "Cargo.Filter1": {
+        "type": "object",
+        "title": "Cargo.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Cargo.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "nombre"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Cargo.Fields"
+          },
+          "include": {
+            "title": "Cargo.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Cargo.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Cargo>"
+      },
+      "CodigoTrabajo.Filter": {
+        "type": "object",
+        "title": "CodigoTrabajo.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "antiguedad": {
+                    "type": "boolean"
+                  },
+                  "diasOtorgados": {
+                    "type": "boolean"
+                  },
+                  "vigente": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "antiguedad",
+                    "diasOtorgados",
+                    "vigente"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "CodigoTrabajo.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<CodigoTrabajo>"
+      },
+      "CodigoTrabajo.Filter1": {
+        "type": "object",
+        "title": "CodigoTrabajo.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "CodigoTrabajo.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "antiguedad": {
+                    "type": "boolean"
+                  },
+                  "diasOtorgados": {
+                    "type": "boolean"
+                  },
+                  "vigente": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "antiguedad",
+                    "diasOtorgados",
+                    "vigente"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "CodigoTrabajo.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<CodigoTrabajo>"
+      },
+      "Empleado.ScopeFilter": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "Empleado.ScopeFilter"
+      },
+      "Empleado.IncludeFilter.Items": {
+        "title": "Empleado.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Empleado.ScopeFilter"
+          }
+        }
+      },
+      "Empleado.Filter": {
+        "type": "object",
+        "title": "Empleado.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "fechaingreso": {
+                    "type": "boolean"
+                  },
+                  "cargoid": {
+                    "type": "boolean"
+                  },
+                  "disponible": {
+                    "type": "boolean"
+                  },
+                  "cargoId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "nombre",
+                    "fechaingreso",
+                    "cargoid",
+                    "disponible",
+                    "cargoId"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Empleado.Fields"
+          },
+          "include": {
+            "title": "Empleado.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Empleado.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Empleado>"
+      },
+      "Empleado.Filter1": {
+        "type": "object",
+        "title": "Empleado.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Empleado.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "fechaingreso": {
+                    "type": "boolean"
+                  },
+                  "cargoid": {
+                    "type": "boolean"
+                  },
+                  "disponible": {
+                    "type": "boolean"
+                  },
+                  "cargoId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "nombre",
+                    "fechaingreso",
+                    "cargoid",
+                    "disponible",
+                    "cargoId"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Empleado.Fields"
+          },
+          "include": {
+            "title": "Empleado.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Empleado.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Empleado>"
+      },
+      "PingResponse": {
+        "type": "object",
+        "title": "PingResponse",
+        "properties": {
+          "greeting": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object",
+            "properties": {
+              "Content-Type": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "Vacaciones.ScopeFilter": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "Vacaciones.ScopeFilter"
+      },
+      "Vacaciones.IncludeFilter.Items": {
+        "title": "Vacaciones.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Vacaciones.ScopeFilter"
+          }
+        }
+      },
+      "Vacaciones.Filter": {
+        "type": "object",
+        "title": "Vacaciones.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "fecha": {
+                    "type": "boolean"
+                  },
+                  "empleadoif": {
+                    "type": "boolean"
+                  },
+                  "empleadoId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "fecha",
+                    "empleadoif",
+                    "empleadoId"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Vacaciones.Fields"
+          },
+          "include": {
+            "title": "Vacaciones.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Vacaciones.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Vacaciones>"
+      },
+      "Vacaciones.Filter1": {
+        "type": "object",
+        "title": "Vacaciones.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Vacaciones.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "fecha": {
+                    "type": "boolean"
+                  },
+                  "empleadoif": {
+                    "type": "boolean"
+                  },
+                  "empleadoId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "fecha",
+                    "empleadoif",
+                    "empleadoId"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Vacaciones.Fields"
+          },
+          "include": {
+            "title": "Vacaciones.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Vacaciones.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Vacaciones>"
+      }
+    }
+  }
+}
